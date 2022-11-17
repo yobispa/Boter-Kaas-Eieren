@@ -1,0 +1,77 @@
+body {
+    background-image: url(/img/Nicebackground.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+#wrapper {
+    height: 400px;
+    width: 348px;
+    border: 2px solid white;
+    margin-left: 435px;
+}
+#wrapper2 {
+    height: 500px;
+    width: 500px;
+    border: 2px solid black; 
+    margin-left: 365px;
+    text-align: center;
+}
+header {
+    font-size: x-large;
+    text-align: center;
+    color: white;
+}
+article {
+    height: 114px;
+    width: 114px;
+    border: 1px solid black;
+    float: left;
+    margin: 0px;
+}
+.settingsImg {
+    height: 50px;
+    width: 50px;
+    float: right;
+}
+.settingsImg:hover {
+    height: 55px;
+    width: 55px;
+    float: right;
+}
+.backArrow {
+    height: 50px;
+    width: 50px;
+    float: left;
+}
+.backArrow:hover {
+    height: 50px;
+    width: 55px;
+    float: left;
+}
+.articleWrapper2 {
+    height: 50px;
+    width: 150px;
+    margin: 5px;
+    background-color: rgb(27, 25, 25);
+    color: white;
+}
+.articleWrapper2:hover{
+    background-color:rgb(118, 112, 112);
+}
+.resetBackgroundClass {
+    margin-top: 400px;
+    float: left;
+}
+.cell {
+    font-size: 80px;
+    font-family: "Permanent Marker", cursive;
+    text-align: center;
+    cursor: pointer;
+}
+.displayInfo {
+    color: white;
+    margin-left: 100px;
+}
+
+/* animations */
+

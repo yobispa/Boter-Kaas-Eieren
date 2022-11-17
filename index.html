@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boter, Kaas en Eieren</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div id="Page1">
+        <a href="#" onclick="return show('Page2','Page1');"><img class="settingsImg" src="/img/settingIcon.png"></a>
+        <div id="wrapper">
+            <header>Boter, Kaas en Eieren</header>
+            <article cellIndex="0" class="cell">
+            </article>
+
+            <article cellIndex="1" class="cell">
+            </article>
+
+            <article cellIndex="2" class="cell">
+            </article>
+
+            <article cellIndex="3" class="cell">
+            </article>
+
+            <article cellIndex="4" class="cell">
+            </article>
+
+            <article cellIndex="5" class="cell">
+            </article>
+
+            <article cellIndex="6" class="cell">
+            </article>
+
+            <article cellIndex="7" class="cell">
+            </article>
+
+            <article cellIndex="8" class="cell">
+            </article>
+        </div>
+        <button onclick="restartGame()">Restart</button>
+        <h1 class="displayInfo"></h1>
+    </div>
+
+
+    <div id="Page2" style="display:none">
+        <a href="#" onclick="return show('Page1','Page2');"><img class="backArrow" src="/img/arrowBack.png"></a>
+        <div id="wrapper2">
+            <header>Settings</header>
+
+            <article class="articleWrapper2" onclick="backgroundColor()">
+                <p>Change background</p>
+            </article>
+
+            <button class="resetBackgroundClass">Reset background Color</button>
+            
+            
+        </div>
+    </div>
+    <script type="application/javascript" src="/js/main.js"></script>
+</body>
+</html>
