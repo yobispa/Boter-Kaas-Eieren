@@ -105,6 +105,7 @@ function checkWinner() {
     currentPlayer = "X";
     options = ["", "", "", "", "", "", "", "", ""];
     cells.forEach(cell => cell.textContent = "");
+    document.querySelector(".displayInfo").innerHTML = ``
     running = true;
 }
 
