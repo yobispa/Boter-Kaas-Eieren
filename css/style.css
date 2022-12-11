@@ -1,3 +1,43 @@
+@font-face {
+    font-family: easports;
+    src: url("/media/EASPORTS15.ttf");
+}
+
+.pageClass{
+    text-align: center;
+    font-family: easports;
+    margin-top: 75px;
+}
+
+.name {
+    font-family: easports;
+    text-align: center;
+    background-color: transparent;
+    cursor: pointer;
+    border: 2px solid black;
+    font-size: 20px;
+    border-radius: 10px;
+    margin: 5px;
+}
+
+.submitName {
+    font-family: easports;
+    background-color: transparent;
+    border-color: transparent;
+    font-size: 15px;
+    margin-top: 20px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.buttonSubmit {
+    margin-left: 110px;
+}
+
+.submitButton {
+    margin-top: 0px;
+}
+/*Game css*/
 body {
     background-image: url(/img/Nicebackground.jpg);
     background-repeat: no-repeat;
@@ -9,6 +49,30 @@ body {
     border: 2px solid white;
     margin-left: 435px;
 }
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(3, [col-start] 1fr);
+    height: 350px;
+    width: 350px;
+}
+
+.cell1, .cell2, .cell3 {
+    grid-column: col-start / span 0;
+}
+
+.cell4, .cell5, .cell6 {
+    grid-column: col-start / span 0;
+}
+
+.cell7, .cell8, .cell9 {
+    grid-column: col-start / span 0;
+}
+
+.box {
+    border: 1px solid black;
+}
+
 #wrapper2 {
     height: 500px;
     width: 500px;
@@ -16,17 +80,20 @@ body {
     margin-left: 365px;
     text-align: center;
 }
+
 header {
     font-size: x-large;
     text-align: center;
     color: white;
 }
+
 article {
-    height: 114px;
-    width: 114px;
-    border: 1px solid black;
-    float: left;
-    margin: 0px;
+   height: 300px;
+   width: 300px;
+   background-color: grey;
+   float: left;
+   margin: 125px;
+   border-radius: 25px;
 }
 .settingsImg {
     height: 50px;
@@ -72,6 +139,37 @@ article {
     color: white;
     margin-left: 100px;
 }
+button {
+    margin-top: 15px;
+    margin-left: 585px;
+}
+/* homepage css */
+
+.colorWhiteClass {
+    color: white;
+}
+
+.align-center {
+    text-align: center;
+}
+
+.fontClass {
+    font-family: easports;
+}
+
+.optionsButton {
+    background-color: white;
+    height: 60px;
+    width: 200px;
+    margin-left: 500px;
+}
+.optionsButton:hover {
+    height: 59px;
+    width: 240px;
+    background-color:cornsilk;
+    margin-left: 480px;
+}
+
 
 /* animations */
 

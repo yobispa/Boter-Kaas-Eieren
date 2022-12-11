@@ -3,11 +3,16 @@ let playerOneWins;
 let playerTwoWins;
 let computerWins;
 let click = 0;
-let cells = document.querySelectorAll(".cell");
+let cells = document.querySelectorAll(".box");
 let options = ["", "", "", "", "", "", "", "", ""]
 let currentPlayer = "X"
 let running = false;
 
+const makecolorblack = document.querySelector(".makecolorblack");
+const backgroundcolorBtn = document.querySelector(".articleWrapper2");
+const gameColor = document.querySelector(".gameColorClass");
+const playerOneBtn = document.querySelector(".playerOne");
+const playerTwoBtn = document.querySelector(".playerTwo");
 const statusText = document.querySelector(".displayInfo");
 const winConditions = [
     [0,1,2],
@@ -20,6 +25,26 @@ const winConditions = [
     [2,4,6]
 ]
 
+//PlayerOne / PlayerTwo names & addEventlisteners for it
+playerOneBtn.addEventListener("click", player1);
+playerTwoBtn.addEventListener("click", player2);
+
+
+function player1() {
+    let playerOneName = document.querySelector(".name1").value;
+    document.querySelector(".playerOneSubmitted").innerHTML = `Speler 1 &nbsp; is ${playerOneName}`
+}
+
+function player2() {
+    let playerTwoName = document.querySelector(".name2").value;
+    document.querySelector(".playerTwoSubmitted").innerHTML = `Speler 2 &nbsp; is ${playerTwoName}`
+}
+
+function test() {
+    console.log(playerOneName)
+}
+
+
 //Page 1 & Page 2 function
 function show(shown, hidden) {
     document.getElementById(shown).style.display='block';
@@ -27,7 +52,25 @@ function show(shown, hidden) {
     return false;
 }
 
+
+//it makes the background color when button is clicked.
+
+makecolorblack.addEventListener("click", changeColorHome);
+gameColor.addEventListener("click", colorReset);
+
+function changeColorHome() {
+    document.body.style.background = backgroundColor = "black";
+      
+}
+
+function colorReset() {
+    document.body.style.background = ``
+}
+
 //Change Color function
+
+backgroundcolorBtn.addEventListener("click", backgroundColor);
+
 function changeColor(color) {
     document.body.style.background = color;
 }
@@ -44,70 +87,12 @@ document.querySelector('.resetBackgroundClass').addEventListener('click', resetB
 
 //X & O function
 
-function initializeGame(){
-    cells.forEach(cell => cell.addEventListener("click", cellClicked));
+    cells.forEach(cell => cell.addEventListener("click", function() {
+        console.log("Cell clicked")
+    }));
     running = true;
-}
-initializeGame();
 
-function cellClicked() {
-    const cellIndex = this.getAttribute("cellIndex")
 
-    if (options[cellIndex] != "" || !running) {
-        return;
-    }
-    updateCell(this, cellIndex);
-    checkWinner()
-}
-
-function updateCell(cell, index) {
-    options[index] = currentPlayer;
-    cell.textContent = currentPlayer;
-    
-}
-
-function changePlayer(){
-    currentPlayer = (currentPlayer == "X") ? "O" : "X";
-}
-
-function checkWinner() {
-    let roundWon = false;
-
-    for(let i = 0; i < winConditions.length; i++){
-        const condition = winConditions[i];
-        const cellA = options[condition[0]];
-        const cellB = options[condition[1]];
-        const cellC = options[condition[2]];
-
-        if(cellA == "" || cellB == "" || cellC == ""){
-            continue;
-        }
-        if(cellA == cellB && cellB == cellC){
-            roundWon = true;
-            break;
-        }
-    }
-
-    if(roundWon){
-        statusText.textContent = `${currentPlayer} wins!`;
-        running = false;
-    }
-    else if(!options.includes("")){
-        statusText.textContent = `Draw!`;
-        running = false;
-    }
-    else{
-        changePlayer();
-    }
- }
-
- function restartGame(){
-    currentPlayer = "X";
-    options = ["", "", "", "", "", "", "", "", ""];
-    cells.forEach(cell => cell.textContent = "");
-    document.querySelector(".displayInfo").innerHTML = ``
-    running = true;
-}
 
 
 

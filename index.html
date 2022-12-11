@@ -8,36 +8,59 @@
     <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-    <div id="Page1">
+
+    <div id="PageHome">
+
+        <h1 class="colorWhiteClass align-center">Welkom bij Boter, Kaas en Eieren</h1>
+        <a href="#" onclick="return show('Page','PageHome');"><button class="optionsButton makecolorblack"><p class="align-center">speler vs speler</p></button></a>
+        <a href="#"><button class="optionsButton"><p class="align-center">speler vs computer</p></button></a>
+
+    </div>
+
+    <div id="Page" style="display:none;">
+
+        <a href="#" onclick="return show('PageHome','Page');"><img class="backArrow gameColorClass" src="/img/backarrowwhite.png"></a>
+
+        <article>
+        <p class="pageClass">Wat is de naam van speler 1</p>
+        <input type="text" class="name name1" placeholder="Gebruikersnaam">
+        
+        <button class="buttonSubmit playerOne submitName">Submit</button>
+        <p class="playerOneSubmitted submitName"></p>
+        </article>
+
+        <article>
+        <p class="pageClass">Wat is de naam van speler 2</p>
+        <input type="text" class="name name2" placeholder="Gebruikersnaam">
+
+        <button class="buttonSubmit playerTwo submitName">Submit</button>
+        <p class="playerTwoSubmitted submitName"></p>
+
+        </article>
+
+        <a href="#" onclick="return show('Page1','Page');"><button class="pageClass submitButton" onclick="colorReset()">Verder gaan!!</button></a>
+
+    </div>
+
+
+    <div id="Page1" style="display:none">
+        <a href="#" onclick="return show('Page','Page1');"><img class="backArrow" onclick="changeColorHome()" src="/img/arrowBack.png"></a>
         <a href="#" onclick="return show('Page2','Page1');"><img class="settingsImg" src="/img/settingIcon.png"></a>
         <div id="wrapper">
-            <header>Boter, Kaas en Eieren</header>
-            <article cellIndex="0" class="cell">
-            </article>
+            <p class="colorWhiteClass align-center">Boter, kaas en eieren</p>
 
-            <article cellIndex="1" class="cell">
-            </article>
-
-            <article cellIndex="2" class="cell">
-            </article>
-
-            <article cellIndex="3" class="cell">
-            </article>
-
-            <article cellIndex="4" class="cell">
-            </article>
-
-            <article cellIndex="5" class="cell">
-            </article>
-
-            <article cellIndex="6" class="cell">
-            </article>
-
-            <article cellIndex="7" class="cell">
-            </article>
-
-            <article cellIndex="8" class="cell">
-            </article>
+            <div class="container">
+                <div class="box cell1"></div>
+                <div class="box cell2"></div>
+                <div class="box cell3"></div>
+                <div class="box cell4"></div>
+                <div class="box cell5"></div>
+                <div class="box cell6"></div>
+                <div class="box cell7"></div>
+                <div class="box cell8"></div>
+                <div class="box cell9"></div>
+            </div>
+            
         </div>
         <button onclick="restartGame()">Restart</button>
         <h1 class="displayInfo"></h1>
@@ -49,7 +72,7 @@
         <div id="wrapper2">
             <header>Settings</header>
 
-            <article class="articleWrapper2" onclick="backgroundColor()">
+            <article class="articleWrapper2">
                 <p>Change background</p>
             </article>
 
