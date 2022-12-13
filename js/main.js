@@ -8,6 +8,7 @@ let options = ["", "", "", "", "", "", "", "", ""]
 let currentPlayer = "X"
 let running = false;
 
+const submitButtonClass = document.querySelector(".submitButton");
 const makecolorblack = document.querySelector(".makecolorblack");
 const backgroundcolorBtn = document.querySelector(".articleWrapper2");
 const gameColor = document.querySelector(".gameColorClass");
@@ -29,27 +30,49 @@ const winConditions = [
 playerOneBtn.addEventListener("click", player1);
 playerTwoBtn.addEventListener("click", player2);
 
+let playerOneName1 = ""
+let playerTwoName2 = ""
+
+submitButtonClass.disabled = true;
 
 function player1() {
     let playerOneName = document.querySelector(".name1").value;
+    playerOneName1 = playerOneName
     document.querySelector(".playerOneSubmitted").innerHTML = `Speler 1 &nbsp; is ${playerOneName}`
+    checkInput()
 }
 
 function player2() {
     let playerTwoName = document.querySelector(".name2").value;
+    playerTwoName2 = playerTwoName
     document.querySelector(".playerTwoSubmitted").innerHTML = `Speler 2 &nbsp; is ${playerTwoName}`
+    checkInput()
 }
 
 function test() {
-    console.log(playerOneName)
+    console.log(playerOneName1)
 }
 
 
 //Page 1 & Page 2 function
+
 function show(shown, hidden) {
     document.getElementById(shown).style.display='block';
     document.getElementById(hidden).style.display='none';
     return false;
+}
+
+//check if input text is filled and enable button
+function checkInput() {
+    console.log("Checking length..");
+
+    if (playerOneName1.length > 0 && playerTwoName2.length > 0) {  
+        console.log("Checking length: ok");
+
+        submitButtonClass.disabled = false;
+    } else {
+        console.log("Checking lengt: not ok");
+    }
 }
 
 
@@ -86,6 +109,9 @@ function resetBackgroundColor() {
 document.querySelector('.resetBackgroundClass').addEventListener('click', resetBackgroundColor);
 
 //X & O function
+
+    document.querySelector(".playerOneNameClass").innerHTML = `${playerOneName1} score`
+    document.querySelector(".playerTwoNameClass").innerHTML = `${playerTwoName2} score`
 
     cells.forEach(cell => cell.addEventListener("click", function() {
         console.log("Cell clicked")

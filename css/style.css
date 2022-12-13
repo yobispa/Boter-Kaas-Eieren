@@ -90,7 +90,7 @@ header {
 article {
    height: 300px;
    width: 300px;
-   background-color: grey;
+   background-color: pink;
    float: left;
    margin: 125px;
    border-radius: 25px;
