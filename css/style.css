@@ -3,6 +3,8 @@
     src: url("/media/EASPORTS15.ttf");
 }
 
+
+
 .pageClass{
     text-align: center;
     font-family: easports;
@@ -36,25 +38,41 @@
 
 .submitButton {
     margin-top: 0px;
+    margin-left: 551px;
+    height: 50px;
+    width: 120px;
+    border-radius: 5px;
+    background-color: rgb(147, 145, 145);
+    border: 2px solid rgb(203, 195, 227);
+    transition: transform ease 0.5s;
+    transform: translateY(-60px);
+}
+
+.submitButton:hover {
+    /* background-color: lightgrey; */
+    background-color: rgb(203, 195, 227);
+    transform: translateY(-65px);
 }
 /*Game css*/
 body {
     background-image: url(/img/Nicebackground.jpg);
     background-repeat: no-repeat;
     background-size: 100%;
+    overflow: hidden;
 }
 #wrapper {
-    height: 400px;
-    width: 348px;
+    height: 500px;
+    width: 448px;
     border: 2px solid white;
-    margin-left: 435px;
+    margin: auto;
 }
 
 .container {
     display: grid;
     grid-template-columns: repeat(3, [col-start] 1fr);
-    height: 350px;
-    width: 350px;
+    grid-template-rows: repeat(3, 1fr );
+    height: 450px;
+    width: 448px;
 }
 
 .cell1, .cell2, .cell3 {
@@ -70,6 +88,10 @@ body {
 }
 
 .box {
+    font-size: 80px;
+    font-family: "Permanent Marker", cursive;
+    text-align: center;
+    cursor: pointer;
     border: 1px solid black;
 }
 
@@ -90,29 +112,31 @@ header {
 article {
    height: 300px;
    width: 300px;
-   background-color: pink;
+   background-color: rgb(203, 195, 227);
    float: left;
-   margin: 125px;
+   margin: 130px;
    border-radius: 25px;
 }
 .settingsImg {
     height: 50px;
     width: 50px;
     float: right;
+    transition: 0.4s;
 }
 .settingsImg:hover {
     height: 55px;
-    width: 55px;
+    width: 53px;
     float: right;
 }
 .backArrow {
     height: 50px;
     width: 50px;
     float: left;
+    transition: 0.4s;
 }
 .backArrow:hover {
     height: 50px;
-    width: 55px;
+    width: 53px;
     float: left;
 }
 .articleWrapper2 {
@@ -129,12 +153,7 @@ article {
     margin-top: 400px;
     float: left;
 }
-.cell {
-    font-size: 80px;
-    font-family: "Permanent Marker", cursive;
-    text-align: center;
-    cursor: pointer;
-}
+
 .displayInfo {
     color: white;
     margin-left: 100px;
@@ -162,6 +181,7 @@ button {
     height: 60px;
     width: 200px;
     margin-left: 500px;
+    transition: 0.5s;
 }
 .optionsButton:hover {
     height: 59px;
@@ -170,6 +190,37 @@ button {
     margin-left: 480px;
 }
 
+#PageHome, #Page, #Page1, #Page2 {
+    animation: fadeOut 1s;
+}
+
+.playerOneNameClass {
+    font-family: 'Courier New', Courier, monospace;
+    color: white;
+    float: left;
+    margin-top: 30px;
+    margin-left: 30px;
+} 
+
+.playerTwoNameClass {
+    font-family: 'Courier New', Courier, monospace;
+    color: white;
+    float: right;
+    margin-top: 30px;
+    margin-right: 19px;
+}
+
+.overlay {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
 
 /* animations */
 
+@keyframes fadeOut {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+}

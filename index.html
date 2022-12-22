@@ -44,8 +44,14 @@
 
 
     <div id="Page1" style="display:none">
-        <a href="#" onclick="return show('Page','Page1');"><img class="backArrow" onclick="changeColorHome()" src="/img/arrowBack.png"></a>
-        <a href="#" onclick="return show('Page2','Page1');"><img class="settingsImg" src="/img/settingIcon.png"></a>
+        <a href="#" onclick="return show('Page','Page1');"><img class="backArrow" onclick="changeColorHome()" src="/img/backarrowwhite.png"></a>
+        <a href="#" onclick="return show('Page2','Page1');"><img class="settingsImg" src="/img/settingsIcon.png"></a>
+
+        <div class="overlayClass"></div>
+
+        <p class="playerOneNameClass"></p>
+        <p class="playerTwoNameClass"></p>
+
         <div id="wrapper">
             <p class="colorWhiteClass align-center">Boter, kaas en eieren</p>
 
@@ -60,7 +66,7 @@
                 <div class="box cell8"></div>
                 <div class="box cell9"></div>
             </div>
-            
+
         </div>
         <button onclick="restartGame()">Restart</button>
         <h1 class="displayInfo"></h1>
@@ -68,13 +74,15 @@
 
 
     <div id="Page2" style="display:none">
-        <a href="#" onclick="return show('Page1','Page2');"><img class="backArrow" src="/img/arrowBack.png"></a>
+        <a href="#" onclick="return show('Page1','Page2');"><img class="backArrow" src="/img/backarrowwhite.png"></a>
         <div id="wrapper2">
             <header>Settings</header>
 
             <article class="articleWrapper2">
                 <p>Change background</p>
             </article>
+
+            
 
             <button class="resetBackgroundClass">Reset background Color</button>
             

@@ -5,8 +5,9 @@ let computerWins;
 let click = 0;
 let cells = document.querySelectorAll(".box");
 let options = ["", "", "", "", "", "", "", "", ""]
+ 
 let currentPlayer = "X"
-let running = false;
+let playerTurn = 1;
 
 const submitButtonClass = document.querySelector(".submitButton");
 const makecolorblack = document.querySelector(".makecolorblack");
@@ -15,6 +16,7 @@ const gameColor = document.querySelector(".gameColorClass");
 const playerOneBtn = document.querySelector(".playerOne");
 const playerTwoBtn = document.querySelector(".playerTwo");
 const statusText = document.querySelector(".displayInfo");
+const overlay = document.querySelector(".overlayClass");
 const winConditions = [
     [0,1,2],
     [3,4,5],
@@ -25,6 +27,8 @@ const winConditions = [
     [0,4,8],
     [2,4,6]
 ]
+
+console.log(options.length)
 
 //PlayerOne / PlayerTwo names & addEventlisteners for it
 playerOneBtn.addEventListener("click", player1);
@@ -64,14 +68,11 @@ function show(shown, hidden) {
 
 //check if input text is filled and enable button
 function checkInput() {
-    console.log("Checking length..");
 
-    if (playerOneName1.length > 0 && playerTwoName2.length > 0) {  
-        console.log("Checking length: ok");
+    if (playerOneName1.length > 0 && playerTwoName2.length > 0) { 
 
         submitButtonClass.disabled = false;
-    } else {
-        console.log("Checking lengt: not ok");
+        playersScore()
     }
 }
 
@@ -108,15 +109,95 @@ function resetBackgroundColor() {
 }
 document.querySelector('.resetBackgroundClass').addEventListener('click', resetBackgroundColor);
 
-//X & O function
+//eventlistener for the grid cells
 
-    document.querySelector(".playerOneNameClass").innerHTML = `${playerOneName1} score`
-    document.querySelector(".playerTwoNameClass").innerHTML = `${playerTwoName2} score`
+function playersScore() {
 
-    cells.forEach(cell => cell.addEventListener("click", function() {
-        console.log("Cell clicked")
+    document.querySelector(".playerOneNameClass").innerHTML = `<h1>${playerOneName1} score</h1><p class="align-center">Symbol: X</p>`
+    document.querySelector(".playerTwoNameClass").innerHTML = `<h1>${playerTwoName2} score</h1><p class="align-center">Symbol: O</P>`
+
+}
+    cells.forEach((cell, index) => cell.addEventListener("click", function() {
+        console.log(index)
+        placeMarker(index);
     }));
-    running = true;
+
+// Place x & o function
+
+function placeMarker(index) {
+
+
+    
+
+    if (cells[index].textContent !== "") {
+        return;
+    } else {
+        checkPlayerTurn();
+    }
+    options[index] = currentPlayer;
+    cells[index].textContent = currentPlayer; 
+
+
+
+    checkWinner()
+}
+
+//check player turn
+
+function checkPlayerTurn() {
+
+    if (playerTurn == 2) {
+        currentPlayer = "O";
+        playerTurn = 1;
+    } else if (playerTurn == 1) {
+        currentPlayer = "X"
+        playerTurn = 2;
+    }
+}
+
+
+//checkwinner
+
+function checkWinner() {
+
+    let roundWon = false;
+    
+    for (let i = 0; i < winConditions.length; i++){
+        const condition = winConditions[i];
+        const cellA = options[condition[0]];
+        const cellB = options[condition[1]];
+        const cellC = options[condition[2]];
+
+        console.log(options)
+
+        if(cellA == "" || cellB == "" || cellC == ""){
+            continue;
+        }
+        if(cellA == cellB && cellB == cellC){
+            roundWon = true;
+            break;
+        }
+    }
+
+    if(roundWon){
+        document.querySelector(".playerOneNameClass").textContent = `${currentPlayer} wins!`;
+        overlay.classList.add("overlay");
+        running = false;
+    }
+} 
+
+    function restartGame() {
+        options = ["", "", "", "", "", "", "", "", ""]
+        overlay.classList.remove("overlay")
+        for (let i = 0; i < cells.length; i++) {
+            cells[i].textContent = ""
+
+        }
+        
+    }
+ 
+
+
 
 
 
