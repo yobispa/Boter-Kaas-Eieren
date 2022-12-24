@@ -149,10 +149,19 @@ article {
 .articleWrapper2:hover{
     background-color:rgb(118, 112, 112);
 }
+
 .resetBackgroundClass {
-    margin-top: 400px;
-    float: left;
+    margin-left: 135px;
+    margin-top: 300px;
+    background-color: lightgray;
+    transition: transform 0.3s;
 }
+
+.resetBackgroundClass:hover {
+    background-color: gray;
+    transform: translateY(-2px);
+}
+
 
 .displayInfo {
     color: white;
@@ -162,6 +171,7 @@ button {
     margin-top: 15px;
     margin-left: 585px;
 }
+
 /* homepage css */
 
 .colorWhiteClass {
@@ -214,7 +224,66 @@ button {
     position: fixed;
     height: 100%;
     width: 100%;
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.restartGameClass {
+    position: fixed;
+    opacity: 0;
+}
+
+.restartGameClassForGame {
+    opacity: 1;
+}
+
+.restartGameOverlay {
+    margin-top: 65vh;
+    margin-left: 45vw;
+    height: 50px;
+    width: 120px;
+    background-color:rgb(201, 193, 193);
+    opacity: 1;
+}
+
+.restartGameOverlay:hover {
+    background-color: rgb(118, 112, 112);
+    transform: translateY(-5px); 
+    transition: transform 0.4s ease-out;
+}
+
+.playerWonClassAdd {
+    opacity: 0;
+}
+
+.playerWonClass {
+    opacity: 1;
+    margin-top: 100px;
+    text-align: center;
+    color: white;
+    font-size: x-large;
+    font-family:'Courier New', Courier, monospace;
+}
+
+.stickersClassAdd {
+    position: fixed;
+    opacity: 0;
+    
+}
+
+.stickersClass {
+    opacity: 1;
+    height: 250px;
+    width: 200px;
+    margin-left: 41.5vw;
+    margin-top: -40px;
+}
+
+.float-right {
+    float: right;
+}
+
+.float-left {
+    float: left;
 }
 
 
@@ -224,3 +293,5 @@ button {
     0% {opacity: 0;}
     100% {opacity: 1;}
 }
+
+

@@ -8,7 +8,14 @@ let options = ["", "", "", "", "", "", "", "", ""]
  
 let currentPlayer = "X"
 let playerTurn = 1;
+let myMusic = document.getElementById("myAudio");
+myMusic.volume = 0.4;
 
+const muteVolumeClass = document.querySelector(".muteVolume");
+const setVolumeHalfClass = document.querySelector(".setVolumeHalf");
+const setVolumeOneOfFiveClass = document.querySelector("setVolumeOneOfFive");
+const restartBtnforGame = document.querySelector(".restartBtnGame");
+const restartGameBtn = document.querySelector(".restartGameClass");
 const submitButtonClass = document.querySelector(".submitButton");
 const makecolorblack = document.querySelector(".makecolorblack");
 const backgroundcolorBtn = document.querySelector(".articleWrapper2");
@@ -28,9 +35,14 @@ const winConditions = [
     [2,4,6]
 ]
 
+
+
 console.log(options.length)
 
+restartBtnforGame.addEventListener("click", restartGame);
+
 //PlayerOne / PlayerTwo names & addEventlisteners for it
+
 playerOneBtn.addEventListener("click", player1);
 playerTwoBtn.addEventListener("click", player2);
 
@@ -53,10 +65,6 @@ function player2() {
     checkInput()
 }
 
-function test() {
-    console.log(playerOneName1)
-}
-
 
 //Page 1 & Page 2 function
 
@@ -67,6 +75,7 @@ function show(shown, hidden) {
 }
 
 //check if input text is filled and enable button
+
 function checkInput() {
 
     if (playerOneName1.length > 0 && playerTwoName2.length > 0) { 
@@ -122,12 +131,27 @@ function playersScore() {
         placeMarker(index);
     }));
 
+//mute volume, set volume to half, set volume to full and set volume to 1/5 functions && event listerners for it
+
+muteVolumeClass.addEventListener("click", muteVolume);
+setVolumeHalfClass.addEventListener("click", setVolumeToHalf);
+// setVolumeOneOfFiveClass.addEventListener("click", setVolumeToOneOfFive);
+
+function muteVolume() {
+    myMusic.volume = 0.0001;
+}
+
+function setVolumeToHalf() {
+    myMusic.volume = 0.5;
+}
+
+function setVolumeToOneOfFive() {
+    myMusic.volume = 0.2;
+}
+
 // Place x & o function
 
 function placeMarker(index) {
-
-
-    
 
     if (cells[index].textContent !== "") {
         return;
@@ -136,6 +160,7 @@ function placeMarker(index) {
     }
     options[index] = currentPlayer;
     cells[index].textContent = currentPlayer; 
+
 
 
 
@@ -179,21 +204,54 @@ function checkWinner() {
         }
     }
 
-    if(roundWon){
-        document.querySelector(".playerOneNameClass").textContent = `${currentPlayer} wins!`;
+    if(roundWon) {
+
+        document.querySelector(".playerWonClassAdd").classList.add("playerWonClass");
+        document.querySelector(".stickersClassAdd").classList.add("stickersClass");
+
+        if (currentPlayer == "X") {
+            document.querySelector(".playerWonClass").textContent = `${playerOneName1} wins!`;
+        } else if (currentPlayer = "O") {
+            document.querySelector(".playerWonClass").textContent = `${playerTwoName2} wins!`;
+        } else {
+            document.querySelector(".playerWonClass").textContent = `Draw Or Error`;
+        }
+
+        restartGameBtn.addEventListener("click", restartGameOvrl);
+        restartGameBtn.textContent = "Restart game";
+        
+        
         overlay.classList.add("overlay");
+        restartGameBtn.classList.add("restartGameOverlay");
         running = false;
     }
 } 
 
-    function restartGame() {
-        options = ["", "", "", "", "", "", "", "", ""]
-        overlay.classList.remove("overlay")
+
+
+// function restart game
+
+    function restartGameOvrl() {
+        options = ["", "", "", "", "", "", "", "", ""];
+        
+        overlay.classList.remove("overlay");
+        restartGameBtn.classList.remove("restartGameOverlay");
+        document.querySelector(".playerWonClass").textContent = ``;
+        document.querySelector(".playerWonClassAdd").classList.remove("playerWonClass");
+        document.querySelector(".stickersClassAdd").classList.remove("stickersClass");
         for (let i = 0; i < cells.length; i++) {
-            cells[i].textContent = ""
+            cells[i].textContent = "";
 
         }
         
+    }
+
+    function restartGame() {
+        options = ["", "", "", "", "", "", "", "", ""];
+        for (let i = 0; i < cells.length; i++) {
+            cells[i].textContent = "";
+
+        }
     }
  
 
