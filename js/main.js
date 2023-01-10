@@ -4,8 +4,9 @@ let playerTwoWins;
 let computerWins;
 let click = 0;
 let cells = document.querySelectorAll(".box");
-let options = ["", "", "", "", "", "", "", "", ""]
- 
+let options = ["", "", "", "", "", "", "", "", ""];
+let drawChecker = 0;
+
 let currentPlayer = "X"
 let playerTurn = 1;
 let myMusic = document.getElementById("myAudio");
@@ -83,6 +84,15 @@ function checkInput() {
         submitButtonClass.disabled = false;
         playersScore()
     }
+
+    if (playerOneName1.length > 10 || playerTwoName2.length > 10) {
+        document.querySelector(".inputValidation").classList.add("inputValidationClass");
+        submitButtonClass.disabled = true;
+    }
+
+    if (playerOneName1.length < 10 && playerTwoName2.length < 10) {
+        document.querySelector(".inputValidation").classList.remove("inputValidationClass");
+    }
 }
 
 
@@ -158,12 +168,19 @@ function placeMarker(index) {
     } else {
         checkPlayerTurn();
     }
+    drawChecker++;
     options[index] = currentPlayer;
     cells[index].textContent = currentPlayer; 
 
+    if (currentPlayer == "X") {
+        document.querySelector(".playerTurnDisplay").innerHTML = `${playerOneName1} turn`
+    } else if (currentPlayer == "O") {
+        document.querySelector(".playerTurnDisplay").innerHTML = `${playerTwoName2} turn`
+    }
 
 
 
+    checkDraw()
     checkWinner()
 }
 
@@ -214,7 +231,7 @@ function checkWinner() {
         } else if (currentPlayer = "O") {
             document.querySelector(".playerWonClass").textContent = `${playerTwoName2} wins!`;
         } else {
-            document.querySelector(".playerWonClass").textContent = `Draw Or Error`;
+            document.querySelector(".playerWonClass").textContent = `Error`;
         }
 
         restartGameBtn.addEventListener("click", restartGameOvrl);
@@ -243,16 +260,47 @@ function checkWinner() {
             cells[i].textContent = "";
 
         }
-        
+        drawChecker = 0;
     }
 
     function restartGame() {
-        options = ["", "", "", "", "", "", "", "", ""];
+        options = ["", "", "", "", "", "" , "", "", ""];
         for (let i = 0; i < cells.length; i++) {
             cells[i].textContent = "";
 
         }
+        drawChecker = 0;
     }
+
+
+
+    function checkDraw() {
+
+        
+        
+            if (drawChecker == 9){
+                document.querySelector(".playerWonClassAdd").classList.add("playerWonClass");
+                document.querySelector(".stickersClassAdd").classList.add("stickersClass");
+
+                    document.querySelector(".playerWonClass").textContent = `Draw`;
+                
+
+                restartGameBtn.addEventListener("click", restartGameOvrl);
+                restartGameBtn.textContent = "Restart game";
+                
+                
+                overlay.classList.add("overlay");
+                restartGameBtn.classList.add("restartGameOverlay");
+            }
+
+           
+        }
+    
+    // CPU
+      
+    let possibleMoves = []
+
+    
  
 
 

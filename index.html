@@ -13,13 +13,17 @@
 
         <h1 class="colorWhiteClass align-center">Welkom bij Boter, Kaas en Eieren</h1>
         <a href="#" onclick="return show('Page','PageHome');"><button class="optionsButton makecolorblack"><p class="align-center">speler vs speler</p></button></a>
-        <a href="#"><button class="optionsButton"><p class="align-center">speler vs computer</p></button></a>
+        <a href="#" onclick="return show('PageCPU','PageHome');"><button class="optionsButton"><p class="align-center">speler vs computer</p></button></a>
 
     </div>
 
     <div id="Page" style="display:none;">
 
         <a href="#" onclick="return show('PageHome','Page');"><img class="backArrow gameColorClass" src="/img/backarrowwhite.png"></a>
+
+        <article class="inputValidation">
+            <p>Maximun characters is 10</p>
+        </article>
 
         <article>
         <p class="pageClass">Wat is de naam van speler 1</p>
@@ -52,6 +56,7 @@
             <p class="playerWonClassAdd"></p>
             <img class="stickersClassAdd" src="/stickers/giphy.webp">
             
+            
         </div>
 
         <p class="playerOneNameClass"></p>
@@ -71,10 +76,11 @@
                 <div class="box cell8"></div>
                 <div class="box cell9"></div>
             </div>
-
+            <p class="playerTurnDisplay"></p>
             <audio id="myAudio" autoplay loop>
                 <source src="media/backgroundmusic.mp3">
             </audio>
+           
         </div>
         <button class="restartBtnGame restartGameClassForGame">Restart</button>
         <h1 class="displayInfo"></h1>
@@ -102,12 +108,29 @@
                 <p>Set music to 1/5</p>
             </article>
 
-            
-
             <button class="resetBackgroundClass">Reset background Color</button>
             
-            
+            </div>
         </div>
+
+    <div id="PageCPU" style="display:none;">
+            <a href="#" onclick="return show('PageHome','PageCPU');"><img class="backArrow" src="/img/backarrowwhite.png"></a>
+
+           
+        <div id="wrapper">
+            <p class="colorWhiteClass align-center">Boter, kaas en eieren</p>
+
+            <div class="container">
+                <div class="box cell1"></div>
+                <div class="box cell2"></div>
+                <div class="box cell3"></div>
+                <div class="box cell4"></div>
+                <div class="box cell5"></div>
+                <div class="box cell6"></div>
+                <div class="box cell7"></div>
+                <div class="box cell8"></div>
+                <div class="box cell9"></div>
+            </div>
     </div>
     <script type="application/javascript" src="/js/main.js"></script>
 </body>

@@ -53,6 +53,23 @@
     background-color: rgb(203, 195, 227);
     transform: translateY(-65px);
 }
+
+.inputValidation {
+    opacity: 0;
+    position: fixed;
+    top: 10px;
+    left: 31.5vw;
+    height: 45px;
+    width: 200px;
+    text-align: center;
+    background-color: lightgray;
+    border: 1.5px solid red;
+    transition: 1s;
+}
+
+.inputValidationClass {
+    opacity: 1;
+}
 /*Game css*/
 body {
     background-image: url(/img/Nicebackground.jpg);
@@ -88,7 +105,7 @@ body {
 }
 
 .box {
-    font-size: 80px;
+    font-size: 100px;
     font-family: "Permanent Marker", cursive;
     text-align: center;
     cursor: pointer;
@@ -265,6 +282,12 @@ button {
 }
 
 .stickersClassAdd {
+    position: fixed;
+    opacity: 0;
+    
+}
+
+.stickersClassAddDraw {
     position: fixed;
     opacity: 0;
     
