@@ -6,6 +6,8 @@ let click = 0;
 let cells = document.querySelectorAll(".box");
 let options = ["", "", "", "", "", "", "", "", ""];
 let drawChecker = 0;
+let xScore = 0;
+let oScore = 0;
 
 let currentPlayer = "X"
 let playerTurn = 1;
@@ -35,8 +37,6 @@ const winConditions = [
     [0,4,8],
     [2,4,6]
 ]
-
-
 
 
 console.log(options.length)
@@ -86,12 +86,12 @@ function checkInput() {
         playersScore()
     }
 
-    if (playerOneName1.length > 10 || playerTwoName2.length > 10) {
+    if (playerOneName1.length > 6 || playerTwoName2.length > 6) {
         document.querySelector(".inputValidation").classList.add("inputValidationClass");
         submitButtonClass.disabled = true;
     }
 
-    if (playerOneName1.length < 10 && playerTwoName2.length < 10) {
+    if (playerOneName1.length < 6 && playerTwoName2.length < 6) {
         document.querySelector(".inputValidation").classList.remove("inputValidationClass");
     }
 }
@@ -106,7 +106,6 @@ function changeColorHome() {
     document.body.style.background = backgroundColor = "black";
       
 }
-
 function colorReset() {
     document.body.style.background = ``
 }
@@ -133,12 +132,6 @@ document.querySelector('.resetBackgroundClass').addEventListener('click', resetB
 
 function playersScore() {
 
-    if (currentPlayer == "X") {
-        document.querySelector(".playerTurnDisplay").innerHTML = `${playerOneName1} turn`
-    } else if (currentPlayer == "O") {
-        document.querySelector(".playerTurnDisplay").innerHTML = `${playerTwoName2} turn`
-    }
-
     document.querySelector(".playerOneNameClass").innerHTML = `<h1>${playerOneName1} score</h1><p class="align-center">Symbol: X</p>`
     document.querySelector(".playerTwoNameClass").innerHTML = `<h1>${playerTwoName2} score</h1><p class="align-center">Symbol: O</P>`
 
@@ -152,7 +145,6 @@ function playersScore() {
 
 muteVolumeClass.addEventListener("click", muteVolume);
 setVolumeHalfClass.addEventListener("click", setVolumeToHalf);
-// setVolumeOneOfFiveClass.addEventListener("click", setVolumeToOneOfFive);
 
 function muteVolume() {
     myMusic.volume = 0.0001;
@@ -183,7 +175,6 @@ function placeMarker(index) {
     
     checkDraw()
     checkWinner()
-    AIturn()
 }
 
 //check player turn
@@ -193,11 +184,9 @@ function checkPlayerTurn() {
     if (playerTurn == 2) {
         currentPlayer = "O";
         playerTurn = 1;
-        document.querySelector(".playerTurnDisplay").innerHTML = `${playerTwoName2} turn`
     } else if (playerTurn == 1) {
         currentPlayer = "X";
         playerTurn = 2;
-        document.querySelector(".playerTurnDisplay").innerHTML = `${playerOneName1} turn`
     }
 }
 
@@ -234,8 +223,12 @@ function checkWinner() {
 
         if (currentPlayer == "X") {
             document.querySelector(".playerWonClass").textContent = `${playerOneName1} wins!`;
+            xScore++;
+            document.querySelector(".playerOneNameClass").innerHTML = `<h1>${playerOneName1} score: ${xScore}</h1><p class="align-center">Symbol: X</p>`
         } else if (currentPlayer = "O") {
             document.querySelector(".playerWonClass").textContent = `${playerTwoName2} wins!`;
+            oScore++;
+            document.querySelector(".playerTwoNameClass").innerHTML = `<h1>${playerTwoName2} score: ${oScore}</h1><p class="align-center">Symbol: O</P>`
         } else {
             document.querySelector(".playerWonClass").textContent = `Error`;
         }
@@ -290,8 +283,6 @@ function checkWinner() {
 
     function checkDraw() {
 
-        
-        
             if (drawChecker == 9){
                 document.querySelector(".playerWonClassAdd").classList.add("playerWonClass");
                 document.querySelector(".stickersClassAdd").classList.add("stickersClass");

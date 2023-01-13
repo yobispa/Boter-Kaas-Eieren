@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap');
+* {
+    margin: 0px;
+    padding: 0px;
+    overflow: hidden;
+}
+
+#playb {
+    width: 30%;
+    height: 60vh;
+    background-color: rgb(0, 0, 0);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-gap: 2px;
+    position: absolute;
+    top: 8em;
+    left: 29.5em;
+}
+
+div {
+    width: 100%;
+    height: 100%;
+    background-color: #ffffff;
+    font-size: 5em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Shadows Into Light', cursive;
+    font-weight: bold;
+}
+
+button#btn {
+    position: absolute;
+    width: 9%;
+    height: 5%;
+    top: 90%;
+    left: 45%;
+}
+
+#winingboard {
+    width: 30%;
+    height: 60vh;
+    background: rgb(249 249 249);
+    position: absolute;
+    top: 19.5%;
+    left: 2%;
+    justify-content: center;
+    display: "none";
+}
+
+#header {
+    font-size: 6em;
+    position: absolute;
+    /* display: flex; */
+    display: "none";
+    align-items: center;
+    justify-content: center;
+    left: 10%;
+    top: 46%;
+    font-family: 'Shadows Into Light', cursive;
+    font-weight: bold;
+}
+
+#head {
+    font-size: 10em;
+    position: absolute;
+    /* display: flex; */
+    display: "none";
+    align-items: center;
+    justify-content: center;
+    left: 40%;
+    top: 0%;
+    font-family: 'Shadows Into Light', cursive;
+    font-weight: bold;
+}
+
+#open {
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    background: url(bg.jpg);
+    background-size: cover;
+    animation: linear forwards;
+    top: 0%;
+}
+
+@keyframes a {
+    0% {
+        top: 0%;
+    }
+    100% {
+        top: 100%;
+    }
+}
+
+h2#ph {
+    font-size: 7em;
+    color: #efefef;
+    position: absolute;
+    top: 40%;
+    left: 30%;
+    font-family: 'Shadows Into Light', cursive;
+    font-weight: bold;
+}
+
+button#p {
+    position: absolute;
+    width: 15%;
+    height: 9%;
+    font-size: 2.5em;
+    border-radius: 31px;
+    top: 80%;
+    font-family: 'Shadows Into Light', cursive;
+    font-weight: bold;
+}
