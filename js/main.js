@@ -27,6 +27,7 @@ const playerOneBtn = document.querySelector(".playerOne");
 const playerTwoBtn = document.querySelector(".playerTwo");
 const statusText = document.querySelector(".displayInfo");
 const overlay = document.querySelector(".overlayClass");
+//wincombinations
 const winConditions = [
     [0,1,2],
     [3,4,5],
@@ -280,6 +281,7 @@ function checkWinner() {
     }
 
 
+//check draw
 
     function checkDraw() {
 
@@ -287,7 +289,7 @@ function checkWinner() {
                 document.querySelector(".playerWonClassAdd").classList.add("playerWonClass");
                 document.querySelector(".stickersClassAdd").classList.add("stickersClass");
 
-                    document.querySelector(".playerWonClass").textContent = `Draw`;
+                document.querySelector(".playerWonClass").textContent = `Draw`;
                 
 
                 restartGameBtn.addEventListener("click", restartGameOvrl);
