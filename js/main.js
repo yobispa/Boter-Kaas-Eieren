@@ -38,6 +38,7 @@ const winConditions = [
 
 
 
+
 console.log(options.length)
 
 restartBtnforGame.addEventListener("click", restartGame);
@@ -132,6 +133,12 @@ document.querySelector('.resetBackgroundClass').addEventListener('click', resetB
 
 function playersScore() {
 
+    if (currentPlayer == "X") {
+        document.querySelector(".playerTurnDisplay").innerHTML = `${playerOneName1} turn`
+    } else if (currentPlayer == "O") {
+        document.querySelector(".playerTurnDisplay").innerHTML = `${playerTwoName2} turn`
+    }
+
     document.querySelector(".playerOneNameClass").innerHTML = `<h1>${playerOneName1} score</h1><p class="align-center">Symbol: X</p>`
     document.querySelector(".playerTwoNameClass").innerHTML = `<h1>${playerTwoName2} score</h1><p class="align-center">Symbol: O</P>`
 
@@ -161,6 +168,7 @@ function setVolumeToOneOfFive() {
 
 // Place x & o function
 
+
 function placeMarker(index) {
 
     if (cells[index].textContent !== "") {
@@ -172,28 +180,24 @@ function placeMarker(index) {
     options[index] = currentPlayer;
     cells[index].textContent = currentPlayer; 
 
-    if (currentPlayer == "X") {
-        document.querySelector(".playerTurnDisplay").innerHTML = `${playerOneName1} turn`
-    } else if (currentPlayer == "O") {
-        document.querySelector(".playerTurnDisplay").innerHTML = `${playerTwoName2} turn`
-    }
-
-
-
+    
     checkDraw()
     checkWinner()
+    AIturn()
 }
 
 //check player turn
 
 function checkPlayerTurn() {
-
+    // console.log("checking player turn");
     if (playerTurn == 2) {
         currentPlayer = "O";
         playerTurn = 1;
+        document.querySelector(".playerTurnDisplay").innerHTML = `${playerTwoName2} turn`
     } else if (playerTurn == 1) {
-        currentPlayer = "X"
+        currentPlayer = "X";
         playerTurn = 2;
+        document.querySelector(".playerTurnDisplay").innerHTML = `${playerOneName1} turn`
     }
 }
 
@@ -203,6 +207,8 @@ function checkPlayerTurn() {
 function checkWinner() {
 
     let roundWon = false;
+
+    console.log(winConditions.length)
     
     for (let i = 0; i < winConditions.length; i++){
         const condition = winConditions[i];
@@ -270,6 +276,14 @@ function checkWinner() {
 
         }
         drawChecker = 0;
+        playerTurn = 1;
+        currentPlayer= "X";
+
+        if (currentPlayer == "X") {
+            document.querySelector(".playerTurnDisplay").innerHTML = `${playerOneName1} turn`
+        } else if (currentPlayer == "O") {
+            document.querySelector(".playerTurnDisplay").innerHTML = `${playerTwoName2} turn`
+        }
     }
 
 
@@ -295,10 +309,9 @@ function checkWinner() {
 
            
         }
+ 
     
-    // CPU
-      
-    let possibleMoves = []
+ 
 
     
  
