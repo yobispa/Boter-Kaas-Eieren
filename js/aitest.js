@@ -17,8 +17,8 @@ const setVolumeHalfClass = document.querySelector(".setVolumeHalf");
 const setVolumeOneOfFiveClass = document.querySelector("setVolumeOneOfFive");
 const backgroundcolorBtn = document.querySelector(".articleWrapper2");
 
-document.querySelector(".playerOneNameClass").innerHTML = `<h1>Human score</h1><p class="align-center">Symbol: X</p>`
-document.querySelector(".playerTwoNameClass").innerHTML = `<h1>COM score</h1><p class="align-center">Symbol: O</P>`
+document.querySelector(".playerOneNameClass").innerHTML = `<h1>Human</h1><p class="align-center">Symbol: X</p>`
+document.querySelector(".playerTwoNameClass").innerHTML = `<h1>Computer</h1><p class="align-center">Symbol: O</P>`
 
 //Page 1 & Page 2 function
 function show(shown, hidden) {
