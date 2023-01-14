@@ -57,14 +57,14 @@ submitButtonClass.disabled = true;
 function player1() {
     let playerOneName = document.querySelector(".name1").value;
     playerOneName1 = playerOneName
-    document.querySelector(".playerOneSubmitted").innerHTML = `Speler 1 &nbsp; is ${playerOneName}`
+    document.querySelector(".playerOneSubmitted").innerHTML = `Speler 1 &nbsp; is ${playerOneName}<br><p class="align-center">Symbol: X</p>`
     checkInput()
 }
 
 function player2() {
     let playerTwoName = document.querySelector(".name2").value;
     playerTwoName2 = playerTwoName
-    document.querySelector(".playerTwoSubmitted").innerHTML = `Speler 2 &nbsp; is ${playerTwoName}`
+    document.querySelector(".playerTwoSubmitted").innerHTML = `Speler 2 &nbsp; is ${playerTwoName}<br><p class="align-center">Symbol: O</p>`
     checkInput()
 }
 
@@ -273,11 +273,7 @@ function checkWinner() {
         playerTurn = 1;
         currentPlayer= "X";
 
-        if (currentPlayer == "X") {
-            document.querySelector(".playerTurnDisplay").innerHTML = `${playerOneName1} turn`
-        } else if (currentPlayer == "O") {
-            document.querySelector(".playerTurnDisplay").innerHTML = `${playerTwoName2} turn`
-        }
+
     }
 
 
@@ -302,6 +298,8 @@ function checkWinner() {
 
            
         }
+
+
  
     
  
