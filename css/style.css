@@ -1,6 +1,6 @@
 @font-face {
     font-family: easports;
-    src: url("/media/EASPORTS15.ttf");
+    src: url("media/EASPORTS15.ttf");
 }
 
 
@@ -72,7 +72,7 @@
 }
 /*Game css*/
 body {
-    background-image: url(/img/Nicebackground.jpg);
+    background-image: url(img/Nicebackground.jpg);
     background-repeat: no-repeat;
     background-size: 100%;
     overflow: hidden;
